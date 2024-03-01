@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+  <input formControlName="interval" placeholder="Interval in ms" />
+  <input formControlName="arraySize" placeholder="Array Size" />
+  <input formControlName="additional_ids" placeholder="Additional IDs (comma-separated)" />
+</form>
+<table>
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>int</th>
+    <th>float</th>
+    <th>color</th>
+    <th>child</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let element of elementsToDisplay; trackBy: trackByFunction">
+  <tr *ngIf="element">
+    <td>{{element.id}}</td>
+    <td>{{element.int}}</td>
+    <td>{{element.float}}</td>
+    <td [style.backgroundColor]="element.color">{{element.color}}</td>
+    <td>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Color</th>
+        </tr>
+        <tr>
+          <td>{{element.child.id}}</td>
+          <td [style.backgroundColor]="element.child.color">{{element.child.color}}</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  </ng-container>
+  </tbody>
+</table>

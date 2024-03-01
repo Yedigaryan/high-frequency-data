@@ -1,0 +1,9 @@
+table {
+  border: 1px solid black;
+  & td {
+    margin-right: 5px;
+    border: 1px solid black;
+    width: max-content;
+    padding-inline: 10px;
+  }
+}
